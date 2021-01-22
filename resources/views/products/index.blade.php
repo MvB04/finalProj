@@ -43,17 +43,17 @@
 		<table class="table table-striped" id="products_table" >
       		<thead class="thead-dark">
         		<tr>
-					<td><b>Product Name</b> &emsp;</td>
-          			<td>
+					<th><b>Product Name</b> &emsp; &emsp;</th>
+          			<th>
 					  	<b>Expiration Date</b>
 						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_i_DfXCW6TIqhqYKDvOodMlmfBnO77TefTg&usqp=CAU" 
 							 style="height: 10px; width:15px; display: inline;">
 						&emsp; 
-					</td>
-          			<td><b>Quantity</b> &emsp;</td>
-					<td><b>Weight</b> &emsp;</td>
-					<td><b>Details</b> &emsp;</td>
-          			<td colspan = 2><b></b></td>
+					</th>
+          			<th><b>Quantity</b></th>
+					<th><b>Weight</b></th>
+					<th><b>Details</b></th>
+          			<th colspan = 2></th>
         		</tr>
     		</thead>
       		<tbody id="products">
@@ -63,7 +63,7 @@
 		  				<td>{{$item->product_name}}</td>
           				<td>{{$item->exp_date }}</td>
           				<td>{{$item->qty }}</td>
-						<td>{{$item->weight }} kg/L</td>
+						<td>{{$item->weight }}</td>
 						<td>{{$item->details }}</td>
           				<td>
               				<a href="{{ route('products.edit',$item->product_id)}}" class="btn btn-primary">Edit</a>
