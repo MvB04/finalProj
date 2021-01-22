@@ -63,7 +63,7 @@
 		  				<td>{{$item->product_name}}</td>
           				<td>{{$item->exp_date }}</td>
           				<td>{{$item->qty }}</td>
-						<td>{{$item->weight }}</td>
+						<td>{{$item->weight }} kg/L</td>
 						<td>{{$item->details }}</td>
           				<td>
               				<a href="{{ route('products.edit',$item->product_id)}}" class="btn btn-primary">Edit</a>
