@@ -58,7 +58,7 @@
 								@foreach($items as $item)
 										<?php 
 											if ($item->recipe == $recipe->recipe_id)
-												echo '<li list-style-type="lower-greek" style="color: purple;">'.$item->ingredient_name.': '.$item->qty.' kg/l </li>';
+												echo '<li list-style-type="lower-greek" style="color: purple;">'.$item->ingredient_name.': '.$item->qty.'</li>';
 										?>
 								@endforeach	
 							</div>							
