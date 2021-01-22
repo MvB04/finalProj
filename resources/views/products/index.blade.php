@@ -51,7 +51,7 @@
 						&emsp; 
 					</th>
           			<th><b>Quantity</b></th>
-					<th><b>Weight</b></th>
+					<th><b>Weight (Kg/L)</b></th>
 					<th><b>Details</b></th>
           			<th colspan = 2></th>
         		</tr>
