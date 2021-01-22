@@ -10,7 +10,6 @@
   	</div>   
 </div>
 
-
 <div class="row">	
 	<div class="col-sm-8">
 		<br>
@@ -18,9 +17,16 @@
 		<div>
 			<h1 style="text-align: center; color: #0050a"><b>{{$recipe->recipe_name}}</b></h1>
 		</div>
+
 		<div>
 			<h4 style="margin-top: 70px; text-align: center; color: purple;"><b>Execution</b></h4>
 		</div>
+		<div>
+			<ul class=list-group>
+			<li style="text-align: center; margin-bottom: 45px;" class=list-group-item>{{ $recipe->execution }}</li>
+			</ul>
+		</div>
+
 		<div>
 			<h4 style="margin-top: 70px; text-align: center; color: purple;"><b>Ingredients:</b></h4>
 		</div>
@@ -33,15 +39,7 @@
 				@endforeach
 			</ul>
 		</div>
-		
-		<div>
-			<ul class=list-group>
-			<li style="text-align: center; margin-bottom: 45px;" class=list-group-item>{{ $recipe->execution }}</li>
-			</ul>
-		</div>
-		<br>
-		<br>
-	
+		<br><br>
 	</div>	
 </div>
 
