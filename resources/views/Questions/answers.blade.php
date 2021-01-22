@@ -1,6 +1,14 @@
 <br>
 <br>
 
+<div class="topnav">
+  	<div >
+		<a style="margin: 5px;" href="/products" class="btn btn-info active">Products</a>
+  		<a style="margin: 5px;" href="/recipes" class="btn btn-info">Recipes</a>
+  	</div>   
+</div>
+
+<!-- This obviously needs some improvements..-->
 <table class="table">
   <thead>
     <tr>

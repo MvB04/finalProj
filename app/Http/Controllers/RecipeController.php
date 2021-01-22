@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\DB;
 class RecipeController extends Controller
 {
 
-   
+   /** Display a listing of the resource. */
     public function index()
     {
 		$items = DB::table('recipes')
@@ -37,13 +37,18 @@ class RecipeController extends Controller
 		return view('recipes.index', ['items' => $items, 'recipes' => $recipes]);
     }
 
-    
+    /** Show the form for creating a new resource. */
     public function create()
     {
         return view('recipes.create');
     }
 
-    
+    /** Store a newly created resource in storage. 
+	 * 
+	 * The regex for the price and weight fields (double) is probably enough
+	 * A double input on these fields, e.g. 0.25 for weight,  means 250 gr, 
+	 * and we inform the user about it.
+     */
     public function store(Request $request)
     {	
 		// Save the recipe, without ingredients.
@@ -87,7 +92,8 @@ class RecipeController extends Controller
         return redirect('/recipes')->with('success', 'recipe saved!');
     }
 
-    
+	
+	/** Display the specified resource. */
     public function show($id)
     {
 		$recipe = Recipe::find($id);
@@ -98,7 +104,8 @@ class RecipeController extends Controller
 		return view('recipes.show', ['ingredients' => $ingredients, 'recipe' => $recipe]);
     }
 
-    
+	
+	/** Show the form for editing the specified resource. */
     public function edit($id)
     {
 		$recipe = Recipe::find($id);
@@ -108,7 +115,8 @@ class RecipeController extends Controller
         return view('recipes.edit', ['ingredients' => $ingredients, 'recipe' => $recipe]);
     }
 
-    
+
+	/** Update the specified resource in storage. */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -151,13 +159,14 @@ class RecipeController extends Controller
         return redirect('/recipes')->with('success', 'recipe updated!');
     }
 
-    
+	
+	/** Removes a recipes AND its corresponding ingredients from the database. */
     public function destroy($id)
     {
-		// deletes the recipe. 
 		// In our migration file, we declare the 'recipe' foreign key
 		// of the table ingredients in a way that when a recipe is removed, 
-		// all it's ingredients will be removed too. (onDelete('CASCADE'))
+		// all it's ingredients will be removed too. (onDelete('CASCADE')).
+		// This is why the next two commands are enough.
         $recipe = Recipe::find($id);
         $recipe->delete();
         return redirect('/recipes')->with('success', 'recipe deleted!');
