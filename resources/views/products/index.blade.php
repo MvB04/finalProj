@@ -4,11 +4,11 @@
 
 
 <div class="topnav" id="topnav">
-  <div >
-  	<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
-	  <a style="margin: 5px;" href="/products" class="btn btn-info active">Products</a>
-  	<a style="margin: 5px;" href="/recipes" class="btn btn-info">Recipes</a>
-  </div>   
+	<div>
+  		<a style="margin: 5px;" href="/" class="btn btn-info">Home</a>
+		<a style="margin: 5px;" href="/products" class="btn btn-info active">Products</a>
+  		<a style="margin: 5px;" href="/recipes" class="btn btn-info">Recipes</a>
+  	</div>   
 </div>
 
 <div class="col-sm-12">
@@ -33,9 +33,9 @@
 
 		<input style="border: 1px solid blue; color: purple; font-size: 13px; border-radius:20px; text-align: center;" type="text" size="30" id="search_box" onkeyup="search_box()" placeholder="Search for product or details..">
     	
-		<form action="{{ route('CreateQuestion.store') }}" method="get" style="display: inline-block; float: right;">
+		<form action="{{ route('available-recipes-with.store') }}" method="get" style="display: inline-block; float: right;">
   			<div class="form-group">
-    			<label for="1stquestion" style="color: purple; font-size:15px; text-align: right;" >Search for recipes with: </label>
+    			<label for="ingredient" style="color: purple; font-size:15px; text-align: right;" >Search for recipes with: </label>
     			<input type="text" size="20" id="ingredient" name="ingredient" placeholder="Type an ingredient" style="text-align: center; font-size: 15px; vertical-align:middle; border: 1px solid purple; border-radius:20px;">
     			<button type="submit" class="btn btn-info" style="color: purple; margin-bottom: 1px; border-radius:10px; vertical-align:middle;">Search</button>
   			</div>

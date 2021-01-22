@@ -9,9 +9,9 @@
   </thead>
   <tbody>
 
-    @foreach($items  as $item)
+    @foreach($items as $item)
       <tr>
-        <th scope="row"> <a href="#">{{$item}}</a></th>
+        <th scope="row"> <a href="recipes/<?php echo $item->recipe_id; ?>">{{$item->recipe_name}}</a></th>
       </tr>
     @endforeach
 

@@ -26,8 +26,7 @@ class QuestionController extends Controller
             	->where('recipe_id', $ingredient->recipe)
 				->distinct()
 				->get();
-			$items[] = $recipe[0]->recipe_name;
-			
+			$items[] = $recipe[0];
 		}
 
     	return view('Questions.answers', ['items' => $items]);

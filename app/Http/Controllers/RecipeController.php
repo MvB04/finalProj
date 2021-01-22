@@ -7,20 +7,26 @@ use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+ /*
+ * An important note about validation (store & update methods):
+ * 
+ * Laravel does not provide a 'double' type for validation.
+ * However, we want 'price' and 'weight' fields of a Product to be doubles.
+ * So to provide this functionality, we use a regex.
+ * (This happens in the validation arrays of the store and update methods)
+ * 
+ * TODO: this regex is not complete. It accepts double values that 
+ * 		 have more than one '.' if these extra dots are at the end of 
+ * 		 the string.
+ * 
+ */
+
 class RecipeController extends Controller
 {
 
    
     public function index()
     {
-		// We execute a join and pass the recipes table and 
-		// the result of the join to our view in order to be able
-		// to handle the data in our view.
-		//
-		// We should do tricks in our view to not diplay the same 
-		// recipe again and again for different ingredients..
-		// Check the resources/views/recipes/index.blade.php for the 
-		// corresponding code of this view.
 		$items = DB::table('recipes')
 					->join('ingredients', 'recipes.recipe_id', '=', 'ingredients.recipe')
 					->select('recipe_name', 'execution', 'ingredient_name', 'qty', 'recipe')
@@ -105,14 +111,11 @@ class RecipeController extends Controller
     
     public function update(Request $request, $id)
     {
-		// validate the fields required for the recipe.
         $request->validate([
 			'recipe_name'	=> 'required', 
 			'execution'		=> 'required'
 		]);
 
-		// get the recipe that we are updating, 
-		// update it's values and save it.
 		$recipe = Recipe::find($id);
 		$recipe->recipe_name = $request->get('recipe_name');
 		$recipe->execution	 = $request->get('execution');

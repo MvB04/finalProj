@@ -24,11 +24,12 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('products', 'App\Http\Controllers\ProductController');
-Route::get('/products.search', 'App\Http\Controllers\ProductController@search');
 
 Route::resource('recipes', 'App\Http\Controllers\RecipeController');
 
 Route::get('questions', function () {
     return view('Questions.first');
 });
-Route::resource('CreateQuestion', 'App\Http\Controllers\QuestionController');
+Route::resource('available-recipes-with', 'App\Http\Controllers\QuestionController');
+
+//Route::resource('available-recipes', 'App\Http\Controllers\')
